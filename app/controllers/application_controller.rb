@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   
   private
   def access_log
-    format = "time:#{Time.now.to_s}, " +
+    now = Time.now.strftime('%Y-%m-%d %H:%i:%s')
+    format = "time:#{time}, " +
       "remote_ip:#{request.remote_ip}, " +
       "user_agent:#{request.user_agent}" +
-      "url:#{request.url}"
+      "url:#{request.fullpath}"
     Application.config.access_logger.info(format)
   end
   
@@ -17,7 +18,7 @@ class ApplicationController < ActionController::Base
     end
     
     while false
-      if ENV.has_key?('docker')
+      if ENV['docker'].present?
         break
       end
       
