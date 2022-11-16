@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  dict = {dev: 'develop'}
+  dict = {dev: 'DevelopController'}
   
   dict.each{|key, val|
     namespace key do
