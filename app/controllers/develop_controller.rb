@@ -1,5 +1,5 @@
 class DevelopController < AbstractController
-  include TraitNft, TraitApi
+  include TraitNft, TraitApi, TraitUser
   
   protected
   # override

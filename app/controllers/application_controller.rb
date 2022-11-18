@@ -18,21 +18,15 @@ class ApplicationController < ActionController::Base
     end
     
     while false
-      if ENV['docker'].present?
-        break
-      end
+      break if ENV['docker'].present?
       
       my_header = request.headers['X-MyHeader']
-      if my_header == 'MyHeaderCode'
-        break
-      end
+      break if my_header == 'MyHeaderCode'
       
       allow = [
         '0.0.0.0',
       ]
-      if allow.include?(request.remote_ip)
-        break
-      end
+      break if allow.include?(request.remote_ip)
       
       render status: :method_not_allowed
     end

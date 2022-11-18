@@ -12,16 +12,12 @@ class AbstractController < ApplicationController
   
   def has_required_parameter?(key)
     if key.instance_of?(String)
-      if params[key].present?
-        return true
-      end
+      return true if params[key].present?
     end
     
     if key.instance_of?(Array)
       key.each{|val|
-        if !has_required_parameter?(val)
-          break
-        end
+        break unless has_required_parameter?(val)
         
         return true
       }
