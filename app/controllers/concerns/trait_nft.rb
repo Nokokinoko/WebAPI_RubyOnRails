@@ -5,6 +5,7 @@ module TraitNft
   extend ActiveSupport::Concern
   
   included do
+    public
     # TODO: setting url
     URL_PRODUCTION = 'https://production'
     URL_STAGING = 'https://staging'
