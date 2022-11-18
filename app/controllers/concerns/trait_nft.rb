@@ -30,7 +30,7 @@ module TraitNft
           request_uri: url_base + query,
           response: debug_response
         }
-        @@response_code = 200
+        @@response_code = :ok
       else
         uri = URI.parse(url_base + query)
         result = Net::HTTP.get_response(uri)
@@ -50,7 +50,7 @@ module TraitNft
           fields: fields.to_json,
           response: debug_response
         }
-        @@response_code = 200
+        @@response_code = :ok
       else
         uri = URI.parse(url_base + query)
         http = Net::HTTP.new(uri.host, uri.port)
