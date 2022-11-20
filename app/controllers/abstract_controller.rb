@@ -1,7 +1,8 @@
 class AbstractController < ApplicationController
-  @@response_code = 0
+  @@response_code = 0 # rubocop:disable Style/ClassVars
   
   protected
+  
   def fqgn
     raise RuntimeError
   end
@@ -10,27 +11,23 @@ class AbstractController < ApplicationController
     raise RuntimeError
   end
   
-  def has_required_parameter?(key)
-    if key.instance_of?(String)
-      return true if params[key].present?
-    end
+  def required_parameter?(key)
+    return true if key.instance_of?(String) && params[key].present?
     
     if key.instance_of?(Array)
-      key.each{|val|
-        break unless has_required_parameter?(val)
-        
-        return true
-      }
+      key.each { |val| return false unless required_parameter?(val) }
+      
+      return true
     end
     
-    return false
+    false
   end
   
   def now
-    Time.now.strftime('%Y-%m-%d %H:%i:%s')
+    Time.current.strftime('%Y-%m-%d %H:%i:%s')
   end
   
   def ymd
-    Time.now.strftime('%Y%m%d')
+    Time.current.strftime('%Y%m%d')
   end
 end

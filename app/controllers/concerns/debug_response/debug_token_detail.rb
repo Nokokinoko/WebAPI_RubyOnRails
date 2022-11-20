@@ -1,4 +1,4 @@
-debug_response = {
+debug_response = { # rubocop:disable Lint/UselessAssignment
   displayName: 'Name_1',
   description: 'Description_1',
   imageUrl: 'https://example',
@@ -6,16 +6,16 @@ debug_response = {
   collectionAddress: 'Address_1',
   totalSupply: 10,
   properties: {
-    Properties_1: {
+    Properties1: {
       displayName: 'NameProperties_1',
-      value: 'ValueProperties_1',
-    },
+      value: 'ValueProperties_1'
+    }
   },
   mutableProperties: {
-    MutableProperties_1: {
+    MutableProperties1: {
       displayName: 'NameMutableProperties_1',
-      value: 'ValueMutableProperties_1',
-    },
+      value: 'ValueMutableProperties_1'
+    }
   },
-  createdAt: 1577804400,
+  createdAt: 1_577_804_400
 }

@@ -1,9 +1,23 @@
 Rails:
   Enabled: true
+require: rubocop-rails
 inherit_from: .rubocop_todo.yml
 
 Layout/TrailingWhitespace:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
 Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/WordArray:
   Enabled: false

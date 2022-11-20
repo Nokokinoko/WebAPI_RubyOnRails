@@ -1,7 +1,10 @@
 class DevelopController < AbstractController
-  include TraitNft, TraitApi, TraitUser
+  include TraitNft
+  include TraitApi
+  include TraitUser
   
   protected
+  
   # override
   def fqgn
     'com.example_studio.example_qgn'
@@ -13,6 +16,7 @@ class DevelopController < AbstractController
   end
   
   private
+  
   # override TraitNft
   def url_base
     # Staging only
