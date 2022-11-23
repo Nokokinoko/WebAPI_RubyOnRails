@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  dict = { dev: 'DevelopController' }
+  dict = { dev: 'develop' }
   
   dict.each do |key, val|
-    namespace key do
+    scope key do
       scope :nft do
         post 'balance', to: "#{val}#balance"
         post 'list_collections', to: "#{val}#list_collections"
